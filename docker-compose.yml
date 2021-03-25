@@ -69,15 +69,6 @@ services:
       - elk
     depends_on:
       - elasticsearch
-      
-   curator:
-    image: binakot/es-curator-cron:latest
-    environment:
-      - PERIOD: 'hourly'
-      - KEEP_DAYS: '10'
-      - INDEX_PREFIX: 'logstash'
-      - INDEX_PATTERN: '[prefix-]%Y.%m.%d'
-    command: '--host elasticsearch --port 9200'
 
 networks:
   elk:
